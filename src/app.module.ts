@@ -4,12 +4,22 @@ import { LoggerProvider } from './providers/logger.provider'
 import { AppService } from './services/app.service';
 import { ConfigModule } from './config/config.module';
 import { DatabaseProvider } from './providers/database.provider';
+import { ActivityController } from './controllers/activity.controller';
+import { ScreenController } from './controllers/screen.controller';
+import { MainScheduleController } from './controllers/main-schedule.controller';
+import { SubScheduleController } from './controllers/sub-schedule.controller';
 
 @Module({
   imports: [
     ConfigModule
   ],
-  controllers: [AppController],
+  controllers: [
+    AppController,
+    ActivityController,
+    ScreenController,
+    MainScheduleController,
+    SubScheduleController
+  ],
   providers: [
     DatabaseProvider,
     LoggerProvider,
