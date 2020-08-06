@@ -16,5 +16,6 @@ export class ScreenDto {
   style: string;
 
   activityId: string;
+  loginCode: string;
   
 }
