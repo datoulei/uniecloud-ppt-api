@@ -1,5 +1,5 @@
 import { Controller, Get, Param, Post, Put, Delete, Body, BadRequestException } from "@nestjs/common";
-import { MainSchedule } from "src/models/main-schedule";
+import { MainSchedule } from "src/models/main-schedule.model";
 import { MainScheduleDto } from "src/dto/main-schedule.dto";
 
 @Controller('/screens/:screenId/schedules')

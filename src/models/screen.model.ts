@@ -2,7 +2,7 @@ import { BaseModel } from "./base.model";
 import { Table, Comment, Column, Default } from "sequelize-typescript";
 
 @Table({
-  tableName: "screens"
+  tableName: "ppt_screens"
 })
 export class Screen extends BaseModel<Screen> {
 
