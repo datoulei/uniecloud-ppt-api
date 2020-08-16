@@ -1,6 +1,6 @@
 import { Controller, Get, Param, Post, Put, Delete, Body, BadRequestException } from "@nestjs/common";
-import { SubScheduleDto } from "src/dto/sub-schedule.dto";
-import { SubSchedule } from "src/models/sub-schedule.model";
+import { SubScheduleDto } from "../dto/sub-schedule.dto";
+import { SubSchedule } from "../models/sub-schedule.model";
 
 @Controller('/schedules/:parentId/children')
 export class SubScheduleController {

@@ -1,4 +1,4 @@
-import { IsDefined, IsDateString } from "class-validator";
+import { IsDefined, IsDateString, IsOptional } from "class-validator";
 export class MainScheduleDto {
   @IsDefined()
   name: string;
@@ -9,6 +9,9 @@ export class MainScheduleDto {
   @IsDateString()
   endDate: string;
 
+  @IsOptional()
+  order: number;
+  
   screenId: string;
   
 }

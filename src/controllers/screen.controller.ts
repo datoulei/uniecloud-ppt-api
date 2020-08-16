@@ -1,7 +1,7 @@
 import { Controller, Get, Param, Post, Put, Delete, Body, BadRequestException } from "@nestjs/common";
 import { Screen } from "../models/screen.model";
-import { ScreenDto } from "src/dto/screen.dto";
-import { UtilService } from "src/services/util.service";
+import { ScreenDto } from "../dto/screen.dto";
+import { UtilService } from "../services/util.service";
 
 @Controller('/activities/:activityId/screens')
 export class ScreenController {

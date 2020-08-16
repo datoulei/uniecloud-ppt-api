@@ -1,6 +1,7 @@
 import { Controller, Get, Param, Post, Put, Delete, Body, BadRequestException } from "@nestjs/common";
-import { MainSchedule } from "src/models/main-schedule.model";
-import { MainScheduleDto } from "src/dto/main-schedule.dto";
+import { MainSchedule } from "../models/main-schedule.model";
+import { Screen } from '../models/screen.model'
+import { MainScheduleDto } from "../dto/main-schedule.dto";
 
 @Controller('/screens/:screenId/schedules')
 export class MainScheduleController {
@@ -17,12 +18,21 @@ export class MainScheduleController {
   }
 
   @Post()
-  create(
+  async create(
     @Param('screenId') screenId: string,
     @Body() body: MainScheduleDto
   ) {
     body.screenId = screenId
-    return MainSchedule.create(body)
+    const last = await MainSchedule.findOne({ where: { screenId }, order: [['order', 'DESC']] })
+    if (last) {
+      body.order = last.order * 2;
+    } else {
+      body.order = 65535;
+    }
+    const instance = await MainSchedule.create(body)
+    const screen = await Screen.findByPk(screenId)
+    await screen.increment('mainScheduleCount')
+    return instance
   }
 
   @Put(':id')
@@ -38,13 +48,16 @@ export class MainScheduleController {
   }
 
   @Delete(':id')
-  delete(
+  async delete(
+    @Param('screenId') screenId: string,
     @Param('id') id: string,
   ) {
-    return MainSchedule.destroy({
+    await MainSchedule.destroy({
       where: {
         id
       }
     })
+    const screen = await Screen.findByPk(screenId)
+    await screen.decrement('mainScheduleCount')
   }
 }

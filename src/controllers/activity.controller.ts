@@ -1,6 +1,6 @@
 import { Controller, Get, Param, Post, Put, Delete, Body, BadRequestException } from "@nestjs/common";
-import { Activity } from "src/models/activity.model";
-import { ActivityDto } from "src/dto/activity.dto";
+import { Activity } from "../models/activity.model";
+import { ActivityDto } from "../dto/activity.dto";
 import * as moment from "moment";
 
 @Controller('/activities')
