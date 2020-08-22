@@ -4,11 +4,11 @@ ARG MYSQL_HOST
 ARG MYSQL_USER
 ARG MYSQL_PASSWORD
 
-COPY package.json ./
-COPY yarn.lock ./
+# COPY package.json ./
+# COPY yarn.lock ./
 
 # RUN npm install
-RUN yarn
+# RUN yarn
 
 # Bundle app source
 COPY . .
