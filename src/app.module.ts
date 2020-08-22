@@ -8,17 +8,28 @@ import { ActivityController } from './controllers/activity.controller';
 import { ScreenController } from './controllers/screen.controller';
 import { MainScheduleController } from './controllers/main-schedule.controller';
 import { SubScheduleController } from './controllers/sub-schedule.controller';
+import { FileController } from './controllers/file.controller';
+import { MulterModule } from '@nestjs/platform-express';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import * as path from 'path';
 
 @Module({
   imports: [
-    ConfigModule
+    ConfigModule,
+    MulterModule.register({
+      dest: './public'
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: path.join(__dirname, '..', 'public'),
+    }),
   ],
   controllers: [
     AppController,
     ActivityController,
     ScreenController,
     MainScheduleController,
-    SubScheduleController
+    SubScheduleController,
+    FileController,
   ],
   providers: [
     DatabaseProvider,

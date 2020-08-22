@@ -31,6 +31,7 @@ export class AppController implements OnApplicationBootstrap {
   @Get('/refresh_code')
   refreshCode(): string {
     this.code = UtilService.randomCharAndNumber(8)
+    this.logger.info(`登录验证码：${this.code}`)
     return this.code
   }
 

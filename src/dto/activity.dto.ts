@@ -4,9 +4,9 @@ export class ActivityDto {
   name: string;
   
   @IsDateString()
-  startDate: string;
+  startTime: string;
   
   @IsDateString()
-  endDate: string;
+  endTime: string;
   
 }
