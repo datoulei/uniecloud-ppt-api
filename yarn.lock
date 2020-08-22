@@ -662,6 +662,13 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
+"@types/helmet@^0.0.48":
+  version "0.0.48"
+  resolved "https://registry.yarnpkg.com/@types/helmet/-/helmet-0.0.48.tgz#e754399d2f4672ba63962e8490efd3edd31d9799"
+  integrity sha512-C7MpnvSDrunS1q2Oy1VWCY7CDWHozqSnM8P4tFeRTuzwqni+PYOjEredwcqWG+kLpYcgLsgcY3orHB54gbx2Jw==
+  dependencies:
+    "@types/express" "*"
+
 "@types/ioredis@^4.0.4":
   version "4.17.3"
   resolved "https://registry.npm.taobao.org/@types/ioredis/download/@types/ioredis-4.17.3.tgz#65ba8b9344576ecb229c57ec1db92be3fe830ee9"
@@ -3720,10 +3727,10 @@ hash.js@^1.0.0, hash.js@^1.0.3:
     inherits "^2.0.3"
     minimalistic-assert "^1.0.1"
 
-helmet@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.npm.taobao.org/helmet/download/helmet-4.0.0.tgz?cache=0&sync_timestamp=1596382548369&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fhelmet%2Fdownload%2Fhelmet-4.0.0.tgz#34c187894ed001834f997c688f2b2df19846b193"
-  integrity sha1-NMGHiU7QAYNPmXxojyst8ZhGsZM=
+helmet@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/helmet/-/helmet-4.1.0.tgz#6f3a34e8f18502d6e52518428b23aa4ddaf84b38"
+  integrity sha512-KWy75fYN8hOG2Rhl8e5B3WhOzb0by1boQum85TiddIE9iu6gV+TXbUjVC17wfej0o/ZUpqB9kxM0NFCZRMzf+Q==
 
 hmac-drbg@^1.0.0:
   version "1.0.1"

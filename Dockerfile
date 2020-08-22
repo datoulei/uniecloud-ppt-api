@@ -1,26 +1,19 @@
-FROM node:12 AS builder
+FROM node:12
+
+ENV NODE_ENV=production
 
 WORKDIR /usr/src/app
 
 COPY package*.json ./
+COPY yarn.lock ./
 
-RUN npm install
+# RUN npm install
+RUN yarn
 
+# Bundle app source
 COPY . .
 
-RUN npm run build
-
-FROM node:12-alpine
-
-ENV NODE_ENV production
-
-WORKDIR /usr/src/app
-
-COPY package*.json ./
-
-RUN npm install --only=production
-
-COPY --from=builder /usr/src/app/dist ./dist
+RUN yarn run build
 
 # compile source
-CMD ["npm", "run", "start:prod"]
+CMD ["node", "dist/main.js"]
