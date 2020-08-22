@@ -24,7 +24,6 @@ export class SubScheduleDto {
   work: string;
   
   @IsOptional()
-  @IsUrl({}, { message: 'PPT地址格式错误'})
   ppt: string;
 
   @IsInt()
