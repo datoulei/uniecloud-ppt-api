@@ -1,6 +1,5 @@
 FROM node:12
 
-ENV NODE_ENV=production
 
 WORKDIR /usr/src/app
 
@@ -14,6 +13,8 @@ RUN yarn
 COPY . .
 
 RUN yarn run build
+
+ENV NODE_ENV=production
 
 # compile source
 CMD ["node", "dist/main.js"]
