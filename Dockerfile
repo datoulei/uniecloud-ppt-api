@@ -1,19 +1,26 @@
-FROM node:12
+FROM node:12 AS builder
 
-ARG MYSQL_HOST
-ARG MYSQL_USER
-ARG MYSQL_PASSWORD
+WORKDIR /usr/src/app
 
-# COPY package.json ./
-# COPY yarn.lock ./
+COPY package*.json ./
 
-# RUN npm install
-# RUN yarn
+RUN npm install
 
-# Bundle app source
 COPY . .
 
 RUN npm run build
 
+FROM node:12-alpine
+
+ENV NODE_ENV production
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+RUN npm install --only=production
+
+COPY --from=builder /usr/src/app/dist ./dist
+
 # compile source
-CMD ["node", "dist/main.js"]
+CMD ["npm", "run", "start:prod"]

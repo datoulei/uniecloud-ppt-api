@@ -5,7 +5,7 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { NestApplicationContextOptions } from '@nestjs/common/interfaces/nest-application-context-options.interface';
 import { ValidationPipe, ValidationError, BadRequestException } from '@nestjs/common';
 import { LoggerInterceptor } from './logger.interceptor';
-import helmet from 'helmet';
+import * as helmet from 'helmet';
 import compression from 'compression';
 import rateLimit from 'express-rate-limit';
 import { setupSwagger } from './swagger';
