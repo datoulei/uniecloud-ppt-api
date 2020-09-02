@@ -13,7 +13,8 @@ export class MainScheduleController {
     return MainSchedule.findAll({
       where: {
         screenId
-      }
+      },
+      order: [['order', 'ASC']],
     })
   }
 

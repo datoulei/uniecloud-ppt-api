@@ -31,6 +31,9 @@ export class SubScheduleDto {
 
   @IsIn(['rightTop', 'rightBottom', 'leftTop', 'leftBottom'], { message: '显示位置必须为[rightTop, rightBottom, leftTop, leftBottom]之一'})
   position: string;
+
+  @IsOptional()
+  order: number;
   
   parentId: string;
   

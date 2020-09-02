@@ -5,9 +5,9 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { NestApplicationContextOptions } from '@nestjs/common/interfaces/nest-application-context-options.interface';
 import { ValidationPipe, ValidationError, BadRequestException } from '@nestjs/common';
 import { LoggerInterceptor } from './logger.interceptor';
-import * as helmet from 'helmet';
-import compression from 'compression';
-import rateLimit from 'express-rate-limit';
+// import * as helmet from 'helmet';
+// import * as compression from 'compression';
+// import * as rateLimit from 'express-rate-limit';
 import { setupSwagger } from './swagger';
 
 async function bootstrap() {
@@ -41,21 +41,21 @@ async function bootstrap() {
   );
   // 开启跨域
   app.enableCors();
-  if (mode !== 'development') {
-    // 安全插件
-    app.use(helmet());
-    // 压缩请求
-    app.use(compression());
-    // 跨站点请求伪造
-    // app.use(csurf());
-    // 接口限速
-    app.use(
-      rateLimit({
-        windowMs: 15 * 60 * 1000, // 15 minutes
-        max: 100, // limit each IP to 100 requests per windowMs
-      }),
-    );
-  }
+  // if (mode !== 'development') {
+  //   // 安全插件
+  //   app.use(helmet());
+  //   // 压缩请求
+  //   app.use(compression());
+  //   // 跨站点请求伪造
+  //   // app.use(csurf());
+  //   // 接口限速
+  //   app.use(
+  //     rateLimit({
+  //       windowMs: 15 * 60 * 1000, // 15 minutes
+  //       max: 100, // limit each IP to 100 requests per windowMs
+  //     }),
+  //   );
+  // }
   // 开启swagger
   setupSwagger(app);
 
