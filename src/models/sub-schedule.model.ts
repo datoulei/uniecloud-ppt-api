@@ -42,6 +42,10 @@ export class SubSchedule extends BaseModel<SubSchedule> {
   @Column
   ppt: string;
 
+  @Comment('ppt name')
+  @Column
+  pptName: string;
+
   @Comment('演讲时长')
   @Column
   minutes: number;

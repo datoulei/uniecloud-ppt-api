@@ -26,6 +26,9 @@ export class SubScheduleDto {
   @IsOptional()
   ppt: string;
 
+  @IsOptional()
+  pptName: string;
+
   @IsInt()
   minutes: number;
 
