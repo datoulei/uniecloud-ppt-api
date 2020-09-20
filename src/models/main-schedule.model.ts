@@ -16,11 +16,11 @@ export class MainSchedule extends BaseModel<MainSchedule> {
 
   @Comment('开始时间')
   @Column
-  startDate: Date;
+  startTime: string;
 
   @Comment('结束时间')
   @Column
-  endDate: Date;
+  endTime: string;
 
   @Comment('排序值')
   @Default(0)
