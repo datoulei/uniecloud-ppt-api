@@ -28,7 +28,7 @@ export class SubScheduleController {
     body.parentId = parentId
     const last = await SubSchedule.findOne({ where: { parentId: parentId }, order: [['order', 'DESC']] })
     if (last) {
-      body.order = last.order * 2;
+      body.order = last.order + 65535;
     } else {
       body.order = 65535;
     }
