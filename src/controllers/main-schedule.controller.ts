@@ -26,7 +26,7 @@ export class MainScheduleController {
     body.screenId = screenId
     const last = await MainSchedule.findOne({ where: { screenId }, order: [['order', 'DESC']] })
     if (last) {
-      body.order = last.order * 2;
+      body.order = last.order + 65535;
     } else {
       body.order = 65535;
     }
