@@ -1,0 +1,4 @@
+
+*.tar.gz
+public
+node_modules
